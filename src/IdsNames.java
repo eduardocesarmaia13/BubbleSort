@@ -1,4 +1,5 @@
-/*The following two arrays have IDs and names:
+/*
+The following two arrays have IDs and names:
         ids = {35, 98, 23, 43, 50};
         names = {“John”, “Peter”, “Mariah”, “Bill”, “Chris”};
         The IDs and names are in the respective positions in each array, id number 35 is for John, 98 for Peter, 23 for Mariah, 43 for Bill and 50 for Chris.
@@ -7,7 +8,8 @@
         {“23 – Mariah”, “35 – John”, “43 – Bill”, “50 – Chris”, “98 - Peter”} sorted
         {“1 – Mariah”, “2 – John”, “3 – Bill”, “4 – Chris”, “5 - Peter”} ids changed to position starting at 1
         However, for even positions the name should be replaced by “N/A”. Expected result is an array like:
-        {“1 – Mariah”, “2 – N/A”, “3 – Bill”, “4 – N/A”, “5 - Peter”};*/
+        {“1 – Mariah”, “2 – N/A”, “3 – Bill”, “4 – N/A”, “5 - Peter”};
+*/
 
 public class IdsNames {
     public static void main(String[] args) {
@@ -15,14 +17,19 @@ public class IdsNames {
         int[] ids = {35, 98, 23, 43, 50};
         String[] names = {"John", "Peter", "Mariah", "Bill", "Chris"};
 
-        for(int i = 0; i < ids.length; i++) {
-            for(int j = 0; j < ids.length; j++) {
+        for(int i = 0; i < ids.length -1; i++) {
+            for(int j = 0; j < ids.length -i -1; j++) {
+                if(ids[j] > ids[j + 1]) {
 
-                int tempId = ids[j];
-                ids[j] = ids[i];
-                ids[i] = tempId;
+                    int tempId = ids[j];
+                    ids[j] = ids[j+1];
+                    ids[j+1] = tempId;
 
+                }
             }
+        }
+        for(int i = 0; i < ids.length; i++) {
+            System.out.println(ids[i]);
         }
     }
 }
