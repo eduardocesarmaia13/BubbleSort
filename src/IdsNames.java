@@ -17,19 +17,31 @@ public class IdsNames {
         int[] ids = {35, 98, 23, 43, 50};
         String[] names = {"John", "Peter", "Mariah", "Bill", "Chris"};
 
-        for(int i = 0; i < ids.length -1; i++) {
-            for(int j = 0; j < ids.length -i -1; j++) {
-                if(ids[j] > ids[j + 1]) {
+        for(int i = 0; i < ids.length; i++){
+            for(int j = 0; j < ids.length -1; j++){
+                if(ids[j] > ids[j+1]){
 
                     int tempId = ids[j];
                     ids[j] = ids[j+1];
                     ids[j+1] = tempId;
 
+                    String tempName = names[j];
+                    names[j] = names[j+1];
+                    names[j+1] = tempName;
+
                 }
             }
         }
-        for(int i = 0; i < ids.length; i++) {
-            System.out.println(ids[i]);
+        //for(int i = 0; i < names.length; i++) {
+            //System.out.println(ids[i] + " - " + names[i]);
+        //}
+
+        for( int i = 0; i < ids.length; i++) {
+            if( i % 2 != 0) {
+                System.out.println("N/A" + " - " + names[i]);
+            }else{
+                System.out.println(i+1 + " - " + names[i]);
+            }
         }
     }
 }
