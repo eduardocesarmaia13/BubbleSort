@@ -12,11 +12,14 @@ public class Averages {
         int[] list = {5, 13, 24, 56, 7, 8, 11, 98, 57, 23, 56, 21, 33, 72, 82, 9, 10, 48, 30, 61};
         int jump = 3;
 
-        for ( int i = 0; i < list.length; i++) {
-            for ( int j = list[jump-1]; j < list.length; j++) {
-                double average = (list[i] + list[j]) / 2;
-                System.out.println("A média é: " + average);
+
+        for (int i = 0; i <= list.length - jump; i++) {
+            int sum = 0;
+            for (int j = i; j < i + jump; j++) {
+                sum += list[j];
             }
+            double average = (double) sum / jump;
+            System.out.println("Média do conjunto " + (i / jump + 1) + ": " + String.format("%.1f", average));
         }
     }
 }
