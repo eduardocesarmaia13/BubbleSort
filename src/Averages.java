@@ -9,17 +9,27 @@ Given an array, find the averages of first and last subarrays of 'jump' contiguo
 
 public class Averages {
     public static void main(String[] args) {
-        int[] list = {5, 13, 24, 56, 7, 8, 11, 98, 57, 23, 56, 21, 33, 72, 82, 9, 10, 48, 30, 61};
+        int[] array = {5, 13, 24, 56, 7, 8, 11, 98, 57, 23, 56, 21, 33, 72, 82, 9, 10, 48, 30, 61};
         int jump = 3;
 
+        double highest = Double.MIN_VALUE;
+        double smallest = Double.MAX_VALUE;
 
-        for (int i = 0; i <= list.length - jump; i++) {
-            int sum = 0;
-            for (int j = i; j < i + jump; j++) {
-                sum += list[j];
+        for (int i = 0; i <= array.length - jump; i += jump) {
+            double sum = array[i] + array[i + jump - 1];
+            double average = sum / 2.0; // Divide by 2 to find average of two elements
+
+            if (average > highest) {
+                highest = average;
             }
-            double average = (double) sum / jump;
-            System.out.println("Média do conjunto " + (i / jump + 1) + ": " + String.format("%.1f", average));
+            if (average < smallest) {
+                smallest = average;
+            }
+
+            System.out.println("Average of subarray starting at index " + i + ": " + average);
         }
+
+        System.out.println("\nHighest number in the new array: " + highest);
+        System.out.println("Smallest number in the new array: " + smallest);
     }
 }
