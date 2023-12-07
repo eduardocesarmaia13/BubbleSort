@@ -32,10 +32,6 @@ public class IdsNames {
                 }
             }
         }
-        //for(int i = 0; i < names.length; i++) {
-            //System.out.println(ids[i] + " - " + names[i]);
-        //}
-
         for( int i = 0; i < ids.length; i++) {
             if( i % 2 != 0) {
                 System.out.println("N/A" + " - " + names[i]);
